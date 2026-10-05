@@ -1,0 +1,31 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: SideScreenContent
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 6999FFE9-E355-44B6-B5D9-B5C530D5F1A8
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll
+
+using System;
+using UnityEngine;
+
+#nullable disable
+public abstract class SideScreenContent : KScreen
+{
+  [SerializeField]
+  protected string titleKey;
+  public GameObject ContentContainer;
+  public Func<bool> CheckShouldShowTopTitle;
+
+  public virtual void SetTarget(GameObject target)
+  {
+  }
+
+  public virtual void ClearTarget()
+  {
+  }
+
+  public abstract bool IsValidForTarget(GameObject target);
+
+  public virtual int GetSideScreenSortOrder() => 0;
+
+  public virtual string GetTitle() => (string) Strings.Get(this.titleKey);
+}

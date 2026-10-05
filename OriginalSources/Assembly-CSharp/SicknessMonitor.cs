@@ -1,0 +1,106 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: SicknessMonitor
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 6999FFE9-E355-44B6-B5D9-B5C530D5F1A8
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll
+
+using Klei.AI;
+using STRINGS;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+#nullable disable
+public class SicknessMonitor : GameStateMachine<SicknessMonitor, SicknessMonitor.Instance>
+{
+  public GameStateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.State healthy;
+  public SicknessMonitor.SickStates sick;
+  public GameStateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.State post;
+  public GameStateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.State post_nocheer;
+  private static readonly HashedString SickPostKAnim = (HashedString) "anim_cheer_kanim";
+  private static readonly HashedString[] SickPostAnims = new HashedString[3]
+  {
+    (HashedString) "cheer_pre",
+    (HashedString) "cheer_loop",
+    (HashedString) "cheer_pst"
+  };
+
+  public override void InitializeStates(out StateMachine.BaseState default_state)
+  {
+    this.serializable = StateMachine.SerializeType.Both_DEPRECATED;
+    default_state = (StateMachine.BaseState) this.healthy;
+    this.healthy.EventTransition(GameHashes.SicknessAdded, (GameStateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.State) this.sick, (StateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.Transition.ConditionCallback) (smi => smi.IsSick()));
+    this.sick.DefaultState(this.sick.minor).EventTransition(GameHashes.SicknessCured, this.post_nocheer, (StateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.Transition.ConditionCallback) (smi => !smi.IsSick())).ToggleThought(Db.Get().Thoughts.GotInfected);
+    this.sick.minor.EventTransition(GameHashes.SicknessAdded, this.sick.major, (StateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.Transition.ConditionCallback) (smi => smi.HasMajorDisease()));
+    this.sick.major.EventTransition(GameHashes.SicknessCured, this.sick.minor, (StateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.Transition.ConditionCallback) (smi => !smi.HasMajorDisease())).ToggleUrge(Db.Get().Urges.RestDueToDisease).Update("AutoAssignClinic", (System.Action<SicknessMonitor.Instance, float>) ((smi, dt) => smi.AutoAssignClinic()), UpdateRate.SIM_4000ms).Exit((StateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.State.Callback) (smi => smi.UnassignClinic()));
+    this.post_nocheer.Enter((StateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.State.Callback) (smi =>
+    {
+      new SicknessCuredFX.Instance(smi.master, new Vector3(0.0f, 0.0f, -0.1f)).StartSM();
+      if (smi.IsSleepingOrSleepSchedule())
+        smi.GoTo((StateMachine.BaseState) this.healthy);
+      else
+        smi.GoTo((StateMachine.BaseState) this.post);
+    }));
+    this.post.ToggleChore((Func<SicknessMonitor.Instance, Chore>) (smi => (Chore) new EmoteChore(smi.master, Db.Get().ChoreTypes.EmoteHighPriority, SicknessMonitor.SickPostKAnim, SicknessMonitor.SickPostAnims, KAnim.PlayMode.Once)), this.healthy);
+  }
+
+  public class SickStates : 
+    GameStateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.State
+  {
+    public GameStateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.State minor;
+    public GameStateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.State major;
+  }
+
+  public new class Instance : 
+    GameStateMachine<SicknessMonitor, SicknessMonitor.Instance, IStateMachineTarget, object>.GameInstance
+  {
+    private Sicknesses sicknesses;
+
+    public Instance(IStateMachineTarget master)
+      : base(master)
+    {
+      this.sicknesses = master.GetComponent<MinionModifiers>().sicknesses;
+    }
+
+    private string OnGetToolTip(List<Notification> notifications, object data)
+    {
+      return (string) DUPLICANTS.STATUSITEMS.HASDISEASE.TOOLTIP;
+    }
+
+    public bool IsSick() => this.sicknesses.Count > 0;
+
+    public bool HasMajorDisease()
+    {
+      foreach (ModifierInstance<Sickness> modifier in this.sicknesses.ModifierList)
+      {
+        if (modifier.modifier.severity >= Sickness.Severity.Major)
+          return true;
+      }
+      return false;
+    }
+
+    public void AutoAssignClinic()
+    {
+      Ownables soleOwner = this.sm.masterTarget.Get(this.smi).GetComponent<MinionIdentity>().GetSoleOwner();
+      AssignableSlot clinic = Db.Get().AssignableSlots.Clinic;
+      AssignableSlotInstance slot = soleOwner.GetSlot(clinic);
+      if (slot == null || (UnityEngine.Object) slot.assignable != (UnityEngine.Object) null)
+        return;
+      soleOwner.AutoAssignSlot(clinic);
+    }
+
+    public void UnassignClinic()
+    {
+      this.sm.masterTarget.Get(this.smi).GetComponent<MinionIdentity>().GetSoleOwner().GetSlot(Db.Get().AssignableSlots.Clinic)?.Unassign();
+    }
+
+    public bool IsSleepingOrSleepSchedule()
+    {
+      Schedulable component1 = this.GetComponent<Schedulable>();
+      if ((UnityEngine.Object) component1 != (UnityEngine.Object) null && component1.IsAllowed(Db.Get().ScheduleBlockTypes.Sleep))
+        return true;
+      KPrefabID component2 = this.GetComponent<KPrefabID>();
+      return (UnityEngine.Object) component2 != (UnityEngine.Object) null && component2.HasTag(GameTags.Asleep);
+    }
+  }
+}

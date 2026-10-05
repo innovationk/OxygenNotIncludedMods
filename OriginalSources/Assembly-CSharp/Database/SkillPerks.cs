@@ -1,0 +1,262 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: Database.SkillPerks
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 6999FFE9-E355-44B6-B5D9-B5C530D5F1A8
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll
+
+using STRINGS;
+using TUNING;
+
+#nullable disable
+namespace Database;
+
+public class SkillPerks : ResourceSet<SkillPerk>
+{
+  public SkillPerk IncreaseDigSpeedSmall;
+  public SkillPerk IncreaseDigSpeedMedium;
+  public SkillPerk IncreaseDigSpeedLarge;
+  public SkillPerk CanDigVeryFirm;
+  public SkillPerk CanDigNearlyImpenetrable;
+  public SkillPerk CanDigSuperDuperHard;
+  public SkillPerk CanDigRadioactiveMaterials;
+  public SkillPerk CanDigUnobtanium;
+  public SkillPerk IncreaseConstructionSmall;
+  public SkillPerk IncreaseConstructionMedium;
+  public SkillPerk IncreaseConstructionLarge;
+  public SkillPerk IncreaseConstructionMechatronics;
+  public SkillPerk CanDemolish;
+  public SkillPerk IncreaseLearningSmall;
+  public SkillPerk IncreaseLearningMedium;
+  public SkillPerk IncreaseLearningLarge;
+  public SkillPerk IncreaseLearningLargeSpace;
+  public SkillPerk IncreaseBotanySmall;
+  public SkillPerk IncreaseBotanyMedium;
+  public SkillPerk IncreaseBotanyLarge;
+  public SkillPerk CanFarmClams;
+  public SkillPerk CanFarmTinker;
+  public SkillPerk CanIdentifyMutantSeeds;
+  public SkillPerk CanFarmStation;
+  public SkillPerk CanSalvagePlantFiber;
+  public SkillPerk CanWrangleCreatures;
+  public SkillPerk CanUseRanchStation;
+  public SkillPerk CanUseMilkingStation;
+  public SkillPerk IncreaseRanchingSmall;
+  public SkillPerk IncreaseRanchingMedium;
+  public SkillPerk IncreaseAthleticsSmall;
+  public SkillPerk IncreaseAthleticsMedium;
+  public SkillPerk IncreaseAthleticsLarge;
+  public SkillPerk CanSwim;
+  public SkillPerk SwimmingExpertise;
+  public SkillPerk IncreasedLungCapacity;
+  public SkillPerk ImprovedLiquidTemperatureTolerance;
+  public SkillPerk IncreaseSwimmerStaminaInLiquid;
+  public SkillPerk IncreaseSwimmerAthleticsInLiquid;
+  public SkillPerk ReduceSaltWaterSwimmingEyeIrritation;
+  public SkillPerk IncreaseStrengthSmall;
+  public SkillPerk IncreaseStrengthMedium;
+  public SkillPerk IncreaseStrengthGofer;
+  public SkillPerk IncreaseStrengthCourier;
+  public SkillPerk IncreaseStrengthGroundskeeper;
+  public SkillPerk IncreaseStrengthPlumber;
+  public SkillPerk IncreaseCarryAmountSmall;
+  public SkillPerk IncreaseCarryAmountMedium;
+  public SkillPerk IncreaseCarryAmountBionic;
+  public SkillPerk IncreaseArtSmall;
+  public SkillPerk IncreaseArtMedium;
+  public SkillPerk IncreaseArtLarge;
+  public SkillPerk CanArt;
+  public SkillPerk CanArtUgly;
+  public SkillPerk CanArtOkay;
+  public SkillPerk CanArtGreat;
+  public SkillPerk CanStudyArtifact;
+  public SkillPerk CanClothingAlteration;
+  public SkillPerk IncreaseMachinerySmall;
+  public SkillPerk IncreaseMachineryMedium;
+  public SkillPerk IncreaseMachineryLarge;
+  public SkillPerk ConveyorBuild;
+  public SkillPerk CanMakeMissiles;
+  public SkillPerk CanPowerTinker;
+  public SkillPerk CanCraftElectronics;
+  public SkillPerk CanElectricGrill;
+  public SkillPerk CanGasRange;
+  public SkillPerk CanDeepFry;
+  public SkillPerk IncreaseCookingSmall;
+  public SkillPerk IncreaseCookingMedium;
+  public SkillPerk IncreaseCookingLarge;
+  public SkillPerk CanSpiceGrinder;
+  public SkillPerk CanSushiBar;
+  public SkillPerk IncreaseCaringSmall;
+  public SkillPerk IncreaseCaringMedium;
+  public SkillPerk IncreaseCaringLarge;
+  public SkillPerk CanCompound;
+  public SkillPerk CanDoctor;
+  public SkillPerk CanAdvancedMedicine;
+  public SkillPerk ExosuitExpertise;
+  public SkillPerk ExosuitDurability;
+  public SkillPerk AllowAdvancedResearch;
+  public SkillPerk AllowInterstellarResearch;
+  public SkillPerk AllowNuclearResearch;
+  public SkillPerk AllowOrbitalResearch;
+  public SkillPerk AllowGeyserTuning;
+  public SkillPerk AllowChemistry;
+  public SkillPerk CanStudyWorldObjects;
+  public SkillPerk CanUseClusterTelescope;
+  public SkillPerk CanUseClusterTelescopeEnclosed;
+  public SkillPerk IncreaseRocketSpeedSmall;
+  public SkillPerk CanMissionControl;
+  public SkillPerk CanDoPlumbing;
+  public SkillPerk CanUseRockets;
+  public SkillPerk FasterSpaceFlight;
+  public SkillPerk CanTrainToBeAstronaut;
+  public SkillPerk CanUseRocketControlStation;
+  public SkillPerk ExtraBionicBooster1;
+  public SkillPerk ExtraBionicBooster2;
+  public SkillPerk ExtraBionicBooster3;
+  public SkillPerk ExtraBionicBooster4;
+  public SkillPerk ExtraBionicBooster5;
+  public SkillPerk ExtraBionicBooster6;
+  public SkillPerk ReducedBionicGunkProduction;
+  public SkillPerk EfficientBionicGears;
+  public SkillPerk ExtraBionicBatteries;
+  public SkillPerk BionicEardrumsDefense;
+  public SkillPerk BionicMinorEyeIrritationDefense;
+  public SkillPerk BionicMajorEyeIrritationDefense;
+  public SkillPerk BionicChillySurroundingsDefense;
+  public SkillPerk BionicToastySurroundingsDefense;
+  public SkillPerk IncreaseAthleticsBionicsC1;
+  public SkillPerk IncreaseAthleticsBionicsC2;
+  public SkillPerk IncreaseAthleticsBionicsB2;
+  public SkillPerk IncreaseAthleticsBionicsA2;
+  public SkillPerk IncreasedCarryBionics;
+  public SkillPerk IncreasedCarryBionicsMinor;
+
+  public void ResetProblematicReferences()
+  {
+    ((LungCapacityPerk) this.IncreasedLungCapacity).ResetConsumedBreathBoosts();
+  }
+
+  public SkillPerks(ResourceSet parent)
+    : base(nameof (SkillPerks), parent)
+  {
+    this.IncreaseDigSpeedSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseDigSpeedSmall), Db.Get().Attributes.Digging.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.JUNIOR_MINER.NAME));
+    this.IncreaseDigSpeedMedium = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseDigSpeedMedium), Db.Get().Attributes.Digging.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.MINER.NAME));
+    this.IncreaseDigSpeedLarge = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseDigSpeedLarge), Db.Get().Attributes.Digging.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.SENIOR_MINER.NAME));
+    this.CanDigVeryFirm = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanDigVeryFirm), (string) UI.ROLES_SCREEN.PERKS.CAN_DIG_VERY_FIRM.DESCRIPTION));
+    this.CanDigNearlyImpenetrable = this.Add((SkillPerk) new SimpleSkillPerk("CanDigAbyssalite", (string) UI.ROLES_SCREEN.PERKS.CAN_DIG_NEARLY_IMPENETRABLE.DESCRIPTION));
+    this.CanDigSuperDuperHard = this.Add((SkillPerk) new SimpleSkillPerk("CanDigDiamondAndObsidan", (string) UI.ROLES_SCREEN.PERKS.CAN_DIG_SUPER_SUPER_HARD.DESCRIPTION));
+    this.CanDigRadioactiveMaterials = this.Add((SkillPerk) new SimpleSkillPerk("CanDigCorium", (string) UI.ROLES_SCREEN.PERKS.CAN_DIG_RADIOACTIVE_MATERIALS.DESCRIPTION));
+    this.CanDigUnobtanium = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanDigUnobtanium), (string) UI.ROLES_SCREEN.PERKS.CAN_DIG_UNOBTANIUM.DESCRIPTION));
+    this.IncreaseConstructionSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseConstructionSmall), Db.Get().Attributes.Construction.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.JUNIOR_BUILDER.NAME));
+    this.IncreaseConstructionMedium = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseConstructionMedium), Db.Get().Attributes.Construction.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.BUILDER.NAME));
+    this.IncreaseConstructionLarge = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseConstructionLarge), Db.Get().Attributes.Construction.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.SENIOR_BUILDER.NAME));
+    this.IncreaseConstructionMechatronics = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseConstructionMechatronics), Db.Get().Attributes.Construction.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.MECHATRONIC_ENGINEER.NAME));
+    this.CanDemolish = this.Add((SkillPerk) new SimpleSkillPerk("CanDemonlish", (string) UI.ROLES_SCREEN.PERKS.CAN_DEMOLISH.DESCRIPTION));
+    this.IncreaseLearningSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseLearningSmall), Db.Get().Attributes.Learning.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.JUNIOR_RESEARCHER.NAME));
+    this.IncreaseLearningMedium = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseLearningMedium), Db.Get().Attributes.Learning.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.RESEARCHER.NAME));
+    this.IncreaseLearningLarge = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseLearningLarge), Db.Get().Attributes.Learning.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.SENIOR_RESEARCHER.NAME));
+    this.IncreaseLearningLargeSpace = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseLearningLargeSpace), Db.Get().Attributes.Learning.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.SPACE_RESEARCHER.NAME));
+    this.IncreaseBotanySmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseBotanySmall), Db.Get().Attributes.Botanist.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.JUNIOR_FARMER.NAME));
+    this.IncreaseBotanyMedium = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseBotanyMedium), Db.Get().Attributes.Botanist.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.FARMER.NAME));
+    this.IncreaseBotanyLarge = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseBotanyLarge), Db.Get().Attributes.Botanist.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.SENIOR_FARMER.NAME));
+    this.CanFarmTinker = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanFarmTinker), (string) UI.ROLES_SCREEN.PERKS.CAN_FARM_TINKER.DESCRIPTION));
+    this.CanIdentifyMutantSeeds = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanIdentifyMutantSeeds), (string) UI.ROLES_SCREEN.PERKS.CAN_IDENTIFY_MUTANT_SEEDS.DESCRIPTION));
+    this.CanFarmStation = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanFarmStation), (string) UI.ROLES_SCREEN.PERKS.CAN_FARM_STATION.DESCRIPTION));
+    this.CanSalvagePlantFiber = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanSalvagePlantFiber), (string) UI.ROLES_SCREEN.PERKS.CAN_SALVAGE_PLANT_FIBER.DESCRIPTION));
+    this.IncreaseRanchingSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseRanchingSmall), Db.Get().Attributes.Ranching.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.RANCHER.NAME));
+    this.IncreaseRanchingMedium = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseRanchingMedium), Db.Get().Attributes.Ranching.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.SENIOR_RANCHER.NAME));
+    this.CanWrangleCreatures = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanWrangleCreatures), (string) UI.ROLES_SCREEN.PERKS.CAN_WRANGLE_CREATURES.DESCRIPTION));
+    this.CanUseRanchStation = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanUseRanchStation), (string) UI.ROLES_SCREEN.PERKS.CAN_USE_RANCH_STATION.DESCRIPTION));
+    this.CanUseMilkingStation = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanUseMilkingStation), (string) UI.ROLES_SCREEN.PERKS.CAN_USE_MILKING_STATION.DESCRIPTION));
+    this.IncreaseAthleticsSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseAthleticsSmall), Db.Get().Attributes.Athletics.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.HAULER.NAME));
+    this.IncreaseAthleticsMedium = this.Add((SkillPerk) new SkillAttributePerk("IncreaseAthletics", Db.Get().Attributes.Athletics.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.SUIT_EXPERT.NAME));
+    this.IncreaseAthleticsLarge = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseAthleticsLarge), Db.Get().Attributes.Athletics.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.SUIT_DURABILITY.NAME));
+    this.CanSwim = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanSwim), (string) UI.ROLES_SCREEN.PERKS.CAN_SWIM.DESCRIPTION));
+    this.IncreasedLungCapacity = this.Add((SkillPerk) new LungCapacityPerk(nameof (IncreasedLungCapacity), DUPLICANTSTATS.STANDARD.Breath.SWIMMING_SKILL_LUNG_CAPACITY_BONUS, (string) DUPLICANTS.ROLES.SWIMMER.NAME));
+    this.IncreaseSwimmerStaminaInLiquid = this.Add((SkillPerk) new SimpleSkillPerk(nameof (IncreaseSwimmerStaminaInLiquid), (string) UI.ROLES_SCREEN.PERKS.INCREASE_SWIMMER_STAMINA_IN_LIQUID.DESCRIPTION));
+    this.IncreaseSwimmerAthleticsInLiquid = this.Add((SkillPerk) new SimpleSkillPerk(nameof (IncreaseSwimmerAthleticsInLiquid), (string) UI.ROLES_SCREEN.PERKS.INCREASE_SWIMMER_ATHLETICS_IN_LIQUID.DESCRIPTION));
+    this.ReduceSaltWaterSwimmingEyeIrritation = this.Add((SkillPerk) new SimpleSkillPerk(nameof (ReduceSaltWaterSwimmingEyeIrritation), (string) UI.ROLES_SCREEN.PERKS.REDUCE_SALTWATER_SWIMMER_EYE_IRRITATION.DESCRIPTION));
+    this.ImprovedLiquidTemperatureTolerance = this.Add((SkillPerk) new SimpleSkillPerk(nameof (ImprovedLiquidTemperatureTolerance), (string) UI.ROLES_SCREEN.PERKS.IMPROVED_LIQUID_TEMPERATURE_TOLERANCE.DESCRIPTION));
+    this.IncreaseStrengthGofer = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseStrengthGofer), Db.Get().Attributes.Strength.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.HAULER.NAME));
+    this.IncreaseStrengthCourier = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseStrengthCourier), Db.Get().Attributes.Strength.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.MATERIALS_MANAGER.NAME));
+    this.IncreaseStrengthGroundskeeper = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseStrengthGroundskeeper), Db.Get().Attributes.Strength.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.HANDYMAN.NAME));
+    this.IncreaseStrengthPlumber = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseStrengthPlumber), Db.Get().Attributes.Strength.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.PLUMBER.NAME));
+    this.IncreaseCarryAmountSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseCarryAmountSmall), Db.Get().Attributes.CarryAmount.Id, 400f, (string) DUPLICANTS.ROLES.HAULER.NAME));
+    this.IncreaseCarryAmountMedium = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseCarryAmountMedium), Db.Get().Attributes.CarryAmount.Id, 800f, (string) DUPLICANTS.ROLES.MATERIALS_MANAGER.NAME));
+    this.IncreaseArtSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseArtSmall), Db.Get().Attributes.Art.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.JUNIOR_ARTIST.NAME));
+    this.IncreaseArtMedium = this.Add((SkillPerk) new SkillAttributePerk("IncreaseArt", Db.Get().Attributes.Art.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.ARTIST.NAME));
+    this.IncreaseArtLarge = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseArtLarge), Db.Get().Attributes.Art.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.MASTER_ARTIST.NAME));
+    this.CanArt = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanArt), (string) UI.ROLES_SCREEN.PERKS.CAN_ART.DESCRIPTION));
+    this.CanArtUgly = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanArtUgly), (string) UI.ROLES_SCREEN.PERKS.CAN_ART_UGLY.DESCRIPTION));
+    this.CanArtOkay = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanArtOkay), (string) UI.ROLES_SCREEN.PERKS.CAN_ART_OKAY.DESCRIPTION));
+    this.CanArtGreat = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanArtGreat), (string) UI.ROLES_SCREEN.PERKS.CAN_ART_GREAT.DESCRIPTION));
+    this.CanArtGreat.alwaysShowPerkName = true;
+    this.CanStudyArtifact = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanStudyArtifact), (string) UI.ROLES_SCREEN.PERKS.CAN_STUDY_ARTIFACTS.DESCRIPTION));
+    this.CanClothingAlteration = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanClothingAlteration), (string) UI.ROLES_SCREEN.PERKS.CAN_CLOTHING_ALTERATION.DESCRIPTION));
+    this.IncreaseMachinerySmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseMachinerySmall), Db.Get().Attributes.Machinery.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.MACHINE_TECHNICIAN.NAME));
+    this.IncreaseMachineryMedium = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseMachineryMedium), Db.Get().Attributes.Machinery.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.POWER_TECHNICIAN.NAME));
+    this.IncreaseMachineryLarge = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseMachineryLarge), Db.Get().Attributes.Machinery.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.MECHATRONIC_ENGINEER.NAME));
+    this.ConveyorBuild = this.Add((SkillPerk) new SimpleSkillPerk(nameof (ConveyorBuild), (string) UI.ROLES_SCREEN.PERKS.CONVEYOR_BUILD.DESCRIPTION));
+    this.CanPowerTinker = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanPowerTinker), (string) UI.ROLES_SCREEN.PERKS.CAN_POWER_TINKER.DESCRIPTION));
+    this.CanMakeMissiles = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanMakeMissiles), (string) UI.ROLES_SCREEN.PERKS.CAN_MAKE_MISSILES.DESCRIPTION));
+    this.CanCraftElectronics = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanCraftElectronics), (string) UI.ROLES_SCREEN.PERKS.CAN_CRAFT_ELECTRONICS.DESCRIPTION, DlcManager.DLC3));
+    this.CanElectricGrill = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanElectricGrill), (string) UI.ROLES_SCREEN.PERKS.CAN_ELECTRIC_GRILL.DESCRIPTION));
+    this.CanGasRange = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanGasRange), (string) UI.ROLES_SCREEN.PERKS.CAN_GAS_RANGE.DESCRIPTION));
+    this.CanDeepFry = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanDeepFry), (string) UI.ROLES_SCREEN.PERKS.CAN_DEEP_FRYER.DESCRIPTION));
+    this.CanSushiBar = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanSushiBar), (string) UI.ROLES_SCREEN.PERKS.CAN_SUSHI_BAR.DESCRIPTION));
+    this.IncreaseCookingSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseCookingSmall), Db.Get().Attributes.Cooking.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.JUNIOR_COOK.NAME));
+    this.IncreaseCookingMedium = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseCookingMedium), Db.Get().Attributes.Cooking.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.COOK.NAME));
+    this.IncreaseCookingLarge = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseCookingLarge), Db.Get().Attributes.Cooking.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.COOK.NAME));
+    this.CanSpiceGrinder = this.Add((SkillPerk) new SimpleSkillPerk("CanSpiceGrinder ", (string) UI.ROLES_SCREEN.PERKS.CAN_SPICE_GRINDER.DESCRIPTION));
+    this.IncreaseCaringSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseCaringSmall), Db.Get().Attributes.Caring.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.JUNIOR_MEDIC.NAME));
+    this.IncreaseCaringMedium = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseCaringMedium), Db.Get().Attributes.Caring.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_SECOND, (string) DUPLICANTS.ROLES.MEDIC.NAME));
+    this.IncreaseCaringLarge = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseCaringLarge), Db.Get().Attributes.Caring.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_THIRD, (string) DUPLICANTS.ROLES.SENIOR_MEDIC.NAME));
+    this.CanCompound = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanCompound), (string) UI.ROLES_SCREEN.PERKS.CAN_COMPOUND.DESCRIPTION));
+    this.CanDoctor = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanDoctor), (string) UI.ROLES_SCREEN.PERKS.CAN_DOCTOR.DESCRIPTION));
+    this.CanAdvancedMedicine = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanAdvancedMedicine), (string) UI.ROLES_SCREEN.PERKS.CAN_ADVANCED_MEDICINE.DESCRIPTION));
+    this.ExosuitExpertise = this.Add((SkillPerk) new SimpleSkillPerk(nameof (ExosuitExpertise), (string) UI.ROLES_SCREEN.PERKS.EXOSUIT_EXPERTISE.DESCRIPTION));
+    this.ExosuitDurability = this.Add((SkillPerk) new SimpleSkillPerk(nameof (ExosuitDurability), (string) UI.ROLES_SCREEN.PERKS.EXOSUIT_DURABILITY.DESCRIPTION));
+    this.AllowAdvancedResearch = this.Add((SkillPerk) new SimpleSkillPerk(nameof (AllowAdvancedResearch), (string) UI.ROLES_SCREEN.PERKS.ADVANCED_RESEARCH.DESCRIPTION));
+    this.AllowInterstellarResearch = this.Add((SkillPerk) new SimpleSkillPerk("AllowInterStellarResearch", (string) UI.ROLES_SCREEN.PERKS.INTERSTELLAR_RESEARCH.DESCRIPTION));
+    this.AllowNuclearResearch = this.Add((SkillPerk) new SimpleSkillPerk(nameof (AllowNuclearResearch), (string) UI.ROLES_SCREEN.PERKS.NUCLEAR_RESEARCH.DESCRIPTION));
+    this.AllowOrbitalResearch = this.Add((SkillPerk) new SimpleSkillPerk(nameof (AllowOrbitalResearch), (string) UI.ROLES_SCREEN.PERKS.ORBITAL_RESEARCH.DESCRIPTION));
+    this.AllowGeyserTuning = this.Add((SkillPerk) new SimpleSkillPerk(nameof (AllowGeyserTuning), (string) UI.ROLES_SCREEN.PERKS.GEYSER_TUNING.DESCRIPTION));
+    this.AllowChemistry = this.Add((SkillPerk) new SimpleSkillPerk(nameof (AllowChemistry), (string) UI.ROLES_SCREEN.PERKS.CHEMISTRY.DESCRIPTION));
+    this.CanStudyWorldObjects = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanStudyWorldObjects), (string) UI.ROLES_SCREEN.PERKS.CAN_STUDY_WORLD_OBJECTS.DESCRIPTION));
+    this.CanUseClusterTelescope = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanUseClusterTelescope), (string) UI.ROLES_SCREEN.PERKS.CAN_USE_CLUSTER_TELESCOPE.DESCRIPTION));
+    this.CanUseClusterTelescopeEnclosed = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanUseClusterTelescopeEnclosed), (string) UI.ROLES_SCREEN.PERKS.CAN_CLUSTERTELESCOPEENCLOSED.DESCRIPTION));
+    this.CanDoPlumbing = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanDoPlumbing), (string) UI.ROLES_SCREEN.PERKS.CAN_DO_PLUMBING.DESCRIPTION));
+    this.CanUseRockets = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanUseRockets), (string) UI.ROLES_SCREEN.PERKS.CAN_USE_ROCKETS.DESCRIPTION));
+    this.FasterSpaceFlight = this.Add((SkillPerk) new SkillAttributePerk(nameof (FasterSpaceFlight), Db.Get().Attributes.SpaceNavigation.Id, 0.1f, (string) DUPLICANTS.ROLES.ASTRONAUT.NAME));
+    this.CanTrainToBeAstronaut = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanTrainToBeAstronaut), (string) UI.ROLES_SCREEN.PERKS.CAN_DO_ASTRONAUT_TRAINING.DESCRIPTION));
+    this.CanMissionControl = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanMissionControl), (string) UI.ROLES_SCREEN.PERKS.CAN_MISSION_CONTROL.DESCRIPTION));
+    this.CanUseRocketControlStation = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanUseRocketControlStation), (string) UI.ROLES_SCREEN.PERKS.CAN_PILOT_ROCKET.DESCRIPTION));
+    this.IncreaseRocketSpeedSmall = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseRocketSpeedSmall), Db.Get().Attributes.SpaceNavigation.Id, (float) TUNING.ROLES.ATTRIBUTE_BONUS_FIRST, (string) DUPLICANTS.ROLES.ROCKETPILOT.NAME));
+    if (DlcManager.IsContentSubscribed("DLC3_ID"))
+    {
+      this.IncreaseCarryAmountBionic = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseCarryAmountBionic), Db.Get().Attributes.CarryAmount.Id, 600f, (string) DUPLICANTS.ROLES.MATERIALS_MANAGER.NAME));
+      this.ExtraBionicBooster1 = this.Add((SkillPerk) new SkillAttributePerk(nameof (ExtraBionicBooster1), Db.Get().Attributes.BionicBoosterSlots.Id, 1f, (string) DUPLICANTS.ATTRIBUTES.BIONICBOOSTERSLOTS.DESC));
+      this.ExtraBionicBooster2 = this.Add((SkillPerk) new SkillAttributePerk(nameof (ExtraBionicBooster2), Db.Get().Attributes.BionicBoosterSlots.Id, 1f, (string) DUPLICANTS.ATTRIBUTES.BIONICBOOSTERSLOTS.DESC));
+      this.ExtraBionicBooster3 = this.Add((SkillPerk) new SkillAttributePerk(nameof (ExtraBionicBooster3), Db.Get().Attributes.BionicBoosterSlots.Id, 2f, (string) DUPLICANTS.ATTRIBUTES.BIONICBOOSTERSLOTS.DESC));
+      this.ExtraBionicBooster4 = this.Add((SkillPerk) new SkillAttributePerk(nameof (ExtraBionicBooster4), Db.Get().Attributes.BionicBoosterSlots.Id, 1f, (string) DUPLICANTS.ATTRIBUTES.BIONICBOOSTERSLOTS.DESC));
+      this.ExtraBionicBooster5 = this.Add((SkillPerk) new SkillAttributePerk(nameof (ExtraBionicBooster5), Db.Get().Attributes.BionicBoosterSlots.Id, 1f, ""));
+      this.ExtraBionicBooster6 = this.Add((SkillPerk) new SkillAttributePerk(nameof (ExtraBionicBooster6), Db.Get().Attributes.BionicBoosterSlots.Id, 1f, (string) DUPLICANTS.ATTRIBUTES.BIONICBOOSTERSLOTS.DESC));
+      this.ExtraBionicBatteries = this.Add((SkillPerk) new SkillAttributePerk(nameof (ExtraBionicBatteries), Db.Get().Attributes.BionicBatteryCountCapacity.Id, 2f, (string) UI.ROLES_SCREEN.PERKS.EXTRA_BIONIC_BATTERIES.DESCRIPTION));
+      this.BionicEardrumsDefense = this.Add((SkillPerk) new ImmunitySkillPerk(nameof (BionicEardrumsDefense), "PoppedEarDrums"));
+      this.BionicMinorEyeIrritationDefense = this.Add((SkillPerk) new ImmunitySkillPerk(nameof (BionicMinorEyeIrritationDefense), "MinorIrritation"));
+      this.BionicMajorEyeIrritationDefense = this.Add((SkillPerk) new ImmunitySkillPerk(nameof (BionicMajorEyeIrritationDefense), "MajorIrritation"));
+      this.BionicToastySurroundingsDefense = this.Add((SkillPerk) new ImmunitySkillPerk(nameof (BionicToastySurroundingsDefense), "WarmAir"));
+      this.BionicChillySurroundingsDefense = this.Add((SkillPerk) new ImmunitySkillPerk(nameof (BionicChillySurroundingsDefense), "ColdAir"));
+      this.ReducedBionicGunkProduction = this.Add((SkillPerk) new SimpleSkillPerk(nameof (ReducedBionicGunkProduction), (string) UI.ROLES_SCREEN.PERKS.REDUCED_GUNK_PRODUCTION.DESCRIPTION));
+      this.EfficientBionicGears = this.Add((SkillPerk) new SimpleSkillPerk(nameof (EfficientBionicGears), (string) UI.ROLES_SCREEN.PERKS.EFFICIENT_BIONIC_GEARS.DESCRIPTION));
+      this.IncreaseAthleticsBionicsC1 = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseAthleticsBionicsC1), Db.Get().Attributes.Athletics.Id, 2f, (string) DUPLICANTS.ROLES.BIONICS_C1.NAME));
+      this.IncreaseAthleticsBionicsC2 = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseAthleticsBionicsC2), Db.Get().Attributes.Athletics.Id, 2f, (string) DUPLICANTS.ROLES.BIONICS_C2.NAME));
+      this.IncreaseAthleticsBionicsB2 = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseAthleticsBionicsB2), Db.Get().Attributes.Athletics.Id, 2f, (string) DUPLICANTS.ROLES.BIONICS_B2.NAME));
+      this.IncreaseAthleticsBionicsA2 = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreaseAthleticsBionicsA2), Db.Get().Attributes.Athletics.Id, 2f, (string) DUPLICANTS.ROLES.BIONICS_A2.NAME));
+      this.IncreasedCarryBionics = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreasedCarryBionics), Db.Get().Attributes.CarryAmount.Id, 400f, (string) STRINGS.ITEMS.BIONIC_BOOSTERS.BOOSTER_CARRY1.NAME, true));
+      this.IncreasedCarryBionicsMinor = this.Add((SkillPerk) new SkillAttributePerk(nameof (IncreasedCarryBionicsMinor), Db.Get().Attributes.CarryAmount.Id, 200f, (string) STRINGS.ITEMS.BIONIC_BOOSTERS.BOOSTER_MOD_SWIM.NAME, true));
+    }
+    if (!DlcManager.IsContentSubscribed("DLC5_ID"))
+      return;
+    this.CanFarmClams = this.Add((SkillPerk) new SimpleSkillPerk(nameof (CanFarmClams), (string) UI.ROLES_SCREEN.PERKS.CAN_FARM_CLAMS.DESCRIPTION));
+  }
+}

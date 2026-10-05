@@ -1,0 +1,32 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: FoodDehydratorWorkableEmpty
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 6999FFE9-E355-44B6-B5D9-B5C530D5F1A8
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll
+
+#nullable disable
+public class FoodDehydratorWorkableEmpty : Workable
+{
+  private static readonly HashedString[] WORK_ANIMS = new HashedString[2]
+  {
+    (HashedString) "empty_pre",
+    (HashedString) "empty_loop"
+  };
+  private static readonly HashedString[] WORK_ANIMS_PST = new HashedString[1]
+  {
+    (HashedString) "empty_pst"
+  };
+  private static readonly HashedString[] WORK_ANIMS_FAIL_PST = new HashedString[1]
+  {
+    (HashedString) ""
+  };
+
+  protected override void OnPrefabInit()
+  {
+    base.OnPrefabInit();
+    this.workerStatusItem = Db.Get().DuplicantStatusItems.Emptying;
+    this.workAnims = FoodDehydratorWorkableEmpty.WORK_ANIMS;
+    this.workingPstComplete = FoodDehydratorWorkableEmpty.WORK_ANIMS_PST;
+    this.workingPstFailed = FoodDehydratorWorkableEmpty.WORK_ANIMS_FAIL_PST;
+  }
+}

@@ -1,0 +1,81 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: VentController
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 6999FFE9-E355-44B6-B5D9-B5C530D5F1A8
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll
+
+using System;
+
+#nullable disable
+public class VentController : 
+  GameStateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>
+{
+  public GameStateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.State off;
+  public GameStateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.State working_pre;
+  public GameStateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.State working_loop;
+  public GameStateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.State working_pst;
+  public GameStateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.State closed;
+  public StateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.BoolParameter isAnimating;
+
+  public override void InitializeStates(out StateMachine.BaseState default_state)
+  {
+    default_state = (StateMachine.BaseState) this.off;
+    this.root.EventHandler(GameHashes.VentAnimatingChanged, new GameStateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.GameEvent.Callback(VentController.UpdateMeterColor)).EventTransition(GameHashes.VentClosed, this.closed, (StateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.Transition.ConditionCallback) (smi => smi.GetComponent<Vent>().Closed())).EventTransition(GameHashes.VentOpen, this.off, (StateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.Transition.ConditionCallback) (smi => !smi.GetComponent<Vent>().Closed()));
+    this.off.PlayAnim("off").EventTransition(GameHashes.VentAnimatingChanged, this.working_pre, new StateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.Transition.ConditionCallback(VentController.IsAnimating));
+    this.working_pre.PlayAnim("working_pre").OnAnimQueueComplete(this.working_loop);
+    this.working_loop.PlayAnim("working_loop", KAnim.PlayMode.Loop).Enter(new StateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.State.Callback(VentController.PlayOutputMeterAnim)).EventTransition(GameHashes.VentAnimatingChanged, this.working_pst, GameStateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.Not(new StateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.Transition.ConditionCallback(VentController.IsAnimating)));
+    this.working_pst.PlayAnim("working_pst").OnAnimQueueComplete(this.off);
+    this.closed.PlayAnim("closed").EventTransition(GameHashes.VentAnimatingChanged, this.working_pre, new StateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.Transition.ConditionCallback(VentController.IsAnimating));
+  }
+
+  public static void PlayOutputMeterAnim(VentController.Instance smi) => smi.PlayMeterAnim();
+
+  public static bool IsAnimating(VentController.Instance smi) => smi.exhaust.IsAnimating();
+
+  public static void UpdateMeterColor(VentController.Instance smi, object data)
+  {
+    if (data == null)
+      return;
+    Element element = (Element) data;
+    smi.SetMeterOutputColor(element);
+  }
+
+  public class Def : StateMachine.BaseDef
+  {
+    public bool usingDynamicColor;
+    public string outputSubstanceAnimName;
+    public string outputSubstanceTintSymbolName;
+  }
+
+  public new class Instance : 
+    GameStateMachine<VentController, VentController.Instance, IStateMachineTarget, VentController.Def>.GameInstance
+  {
+    [MyCmpGet]
+    private KBatchedAnimController anim;
+    [MyCmpGet]
+    public Exhaust exhaust;
+    private MeterController outputSubstanceMeter;
+
+    public Instance(IStateMachineTarget master, VentController.Def def)
+      : base(master, def)
+    {
+      if (!def.usingDynamicColor)
+        return;
+      this.outputSubstanceMeter = new MeterController((KAnimControllerBase) this.anim, "meter_target", def.outputSubstanceAnimName, Meter.Offset.NoChange, Grid.SceneLayer.Building, Array.Empty<string>());
+    }
+
+    public void PlayMeterAnim()
+    {
+      if (this.outputSubstanceMeter == null)
+        return;
+      this.outputSubstanceMeter.meterController.Play((HashedString) this.outputSubstanceMeter.meterController.initialAnim, KAnim.PlayMode.Loop);
+    }
+
+    public void SetMeterOutputColor(Element element)
+    {
+      if (this.outputSubstanceMeter == null)
+        return;
+      GameUtil.TintLiquidSymbolOnBuilding(this.def.outputSubstanceTintSymbolName, this.outputSubstanceMeter.meterController, element);
+    }
+  }
+}

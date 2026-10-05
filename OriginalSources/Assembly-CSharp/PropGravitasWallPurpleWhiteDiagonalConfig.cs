@@ -1,0 +1,50 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: PropGravitasWallPurpleWhiteDiagonalConfig
+// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 6999FFE9-E355-44B6-B5D9-B5C530D5F1A8
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll
+
+using TUNING;
+using UnityEngine;
+
+#nullable disable
+public class PropGravitasWallPurpleWhiteDiagonalConfig : IBuildingConfig
+{
+  public const string ID = "PropGravitasWallPurpleWhiteDiagonal";
+
+  public override BuildingDef CreateBuildingDef()
+  {
+    float[] tieR0_1 = BUILDINGS.CONSTRUCTION_MASS_KG.TIER0;
+    string[] rawMinerals = MATERIALS.RAW_MINERALS;
+    EffectorValues none = NOISE_POLLUTION.NONE;
+    EffectorValues tieR0_2 = DECOR.BONUS.TIER0;
+    EffectorValues noise = none;
+    BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef("PropGravitasWallPurpleWhiteDiagonal", 1, 1, "walls_diagonal_gravitas_purple_white_kanim", 30, 30f, tieR0_1, rawMinerals, 1600f, BuildLocationRule.NotInTiles, tieR0_2, noise);
+    buildingDef.PermittedRotations = PermittedRotations.R360;
+    buildingDef.Entombable = false;
+    buildingDef.Floodable = false;
+    buildingDef.Overheatable = false;
+    buildingDef.AudioCategory = "Metal";
+    buildingDef.BaseTimeUntilRepair = -1f;
+    buildingDef.DefaultAnimState = "off";
+    buildingDef.ObjectLayer = ObjectLayer.Backwall;
+    buildingDef.SceneLayer = Grid.SceneLayer.Backwall;
+    buildingDef.ShowInBuildMenu = false;
+    return buildingDef;
+  }
+
+  public override void ConfigureBuildingTemplate(GameObject go, Tag prefab_tag)
+  {
+    go.AddOrGet<AnimTileable>().objectLayer = ObjectLayer.Backwall;
+    go.AddComponent<ZoneTile>();
+    go.GetComponent<PrimaryElement>().SetElement(SimHashes.Granite);
+    go.GetComponent<PrimaryElement>().Temperature = 273f;
+    go.GetComponent<KPrefabID>().AddTag(GameTags.Gravitas);
+    go.GetComponent<KPrefabID>().AddTag(GameTags.Backwall);
+    BuildingConfigManager.Instance.IgnoreDefaultKComponent(typeof (RequiresFoundation), prefab_tag);
+  }
+
+  public override void DoPostConfigureComplete(GameObject go)
+  {
+  }
+}
