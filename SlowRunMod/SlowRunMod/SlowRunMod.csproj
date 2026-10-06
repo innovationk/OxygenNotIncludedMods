@@ -64,6 +64,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SAlgaeTerrarium.cs" />
     <Compile Include="SAlgaeTerrariumConfig.cs" />
+    <Compile Include="SMicrobeMusher.cs" />
+    <Compile Include="SMicrobeMusherConfig.cs" />
+    <Compile Include="SPitcherPump.cs" />
+    <Compile Include="SPitcherPumpConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="mod.yaml">

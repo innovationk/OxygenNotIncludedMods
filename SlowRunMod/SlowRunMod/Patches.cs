@@ -1,6 +1,5 @@
 using HarmonyLib;
 using KMod;
-using SAlgaeTerrarium;
 
 namespace SlowRunMod
 {
@@ -18,16 +17,35 @@ namespace SlowRunMod
     {
         public static void Prefix()
         {
-            string key = "STRINGS.BUILDINGS.PREFABS." + SAlgaeTerrariumConfig.ID.ToUpperInvariant();
-            Strings.Add(key + ".NAME", STRINGS.UI.FormatAsLink("S Algae Terrarium", SAlgaeTerrariumConfig.ID));
-            Strings.Add(key + ".DESC",
-                "A self-sustaining terrarium. Nobody knows where the algae went, and nobody is asking.");
-            Strings.Add(key + ".EFFECT",
-                "Produces " + STRINGS.UI.FormatAsLink("Oxygen", "OXYGEN") + " and clean "
-                + STRINGS.UI.FormatAsLink("Water", "WATER")
-                + " from nothing.");
+            AddStrings(SAlgaeTerrariumConfig.ID,
+                "S Algae Terrarium",
+                "A self-sustaining terrarium. Nobody knows where the algae went, and nobody is asking.",
+                "Produces " + STRINGS.UI.FormatAsLink("Oxygen", "OXYGEN")
+                + " from nothing. Requires no Algae, no Water and no power.");
+            ModUtil.AddBuildingToPlanScreen("Oxygen", SAlgaeTerrariumConfig.ID, "producers", AlgaeHabitatConfig.ID);
 
-            ModUtil.AddBuildingToPlanScreen("Oxygen", SAlgaeTerrariumConfig.ID, "producers", "AlgaeHabitat");
+            AddStrings(SMicrobeMusherConfig.ID,
+                "S Microbe Musher",
+                "Breakfast, conjured. Do not ask where the eggs come from.",
+                "Produces " + STRINGS.UI.FormatAsLink("Omelettes", "COOKEDEGG")
+                + " from nothing. Requires no ingredients, no power and no Duplicant.");
+            ModUtil.AddBuildingToPlanScreen("Food", SMicrobeMusherConfig.ID, "cooking", MicrobeMusherConfig.ID);
+
+            AddStrings(SPitcherPumpConfig.ID,
+                "S Pitcher Pump",
+                "It pumps. From where? Best not to look down.",
+                "Provides an endless supply of the selected "
+                + STRINGS.UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID")
+                + ". Needs no liquid below it, no pipes and no power.");
+            ModUtil.AddBuildingToPlanScreen("Plumbing", SPitcherPumpConfig.ID, "pumps", LiquidPumpingStationConfig.ID);
+        }
+
+        private static void AddStrings(string id, string name, string desc, string effect)
+        {
+            string key = "STRINGS.BUILDINGS.PREFABS." + id.ToUpperInvariant();
+            Strings.Add(key + ".NAME", STRINGS.UI.FormatAsLink(name, id));
+            Strings.Add(key + ".DESC", desc);
+            Strings.Add(key + ".EFFECT", effect);
         }
     }
 
@@ -37,11 +55,18 @@ namespace SlowRunMod
     {
         public static void Postfix()
         {
+            UnlockWith(AlgaeHabitatConfig.ID, SAlgaeTerrariumConfig.ID);
+            UnlockWith(MicrobeMusherConfig.ID, SMicrobeMusherConfig.ID);
+            UnlockWith(LiquidPumpingStationConfig.ID, SPitcherPumpConfig.ID);
+        }
+
+        private static void UnlockWith(string vanillaId, string modId)
+        {
             foreach (var tech in Db.Get().Techs.resources)
             {
-                if (tech.unlockedItemIDs.Contains(AlgaeHabitatConfig.ID))
+                if (tech.unlockedItemIDs.Contains(vanillaId))
                 {
-                    tech.unlockedItemIDs.Add(SAlgaeTerrariumConfig.ID);
+                    tech.unlockedItemIDs.Add(modId);
                     return;
                 }
             }

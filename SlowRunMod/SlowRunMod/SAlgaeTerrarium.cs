@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SAlgaeTerrarium
+namespace SlowRunMod
 {
     /// <summary>
     /// Runtime logic: switches the ElementConverter on/off.
