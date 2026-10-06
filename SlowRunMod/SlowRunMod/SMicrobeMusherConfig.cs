@@ -35,7 +35,7 @@ namespace SlowRunMod
                 BUILDINGS.CONSTRUCTION_MASS_KG.TIER4,
                 MATERIALS.ALL_METALS,
                 1600f,
-                BuildLocationRule.Anywhere,
+                BuildLocationRule.OnFloor,
                 BUILDINGS.DECOR.NONE,
                 NOISE_POLLUTION.NOISY.TIER0);
 
