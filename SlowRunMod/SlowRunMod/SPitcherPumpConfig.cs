@@ -5,9 +5,9 @@ namespace SlowRunMod
 {
     /// <summary>
     /// "S Pitcher Pump": looks like the vanilla Pitcher Pump, but needs no
-    /// liquid below it. Use the "Choose liquid" button to pick any liquid; its
-    /// storage is kept full forever and Duplicants fetch bottles from it like
-    /// a vanilla Pitcher Pump (Bottle Emptier, deliveries, etc.).
+    /// liquid below it. Pick any liquid in its side screen; its storage is
+    /// kept full forever and Duplicants fetch bottles from it like a vanilla
+    /// Pitcher Pump (Bottle Emptier, deliveries, etc.).
     /// </summary>
     public class SPitcherPumpConfig : IBuildingConfig
     {
@@ -34,7 +34,7 @@ namespace SlowRunMod
                 BUILDINGS.CONSTRUCTION_MASS_KG.TIER4,
                 MATERIALS.RAW_MINERALS,
                 1600f,
-                BuildLocationRule.Anywhere,     // like the vanilla pump: no floor needed
+                BuildLocationRule.Anywhere,
                 BUILDINGS.DECOR.NONE,
                 NOISE_POLLUTION.NONE);
 
@@ -54,6 +54,10 @@ namespace SlowRunMod
             storage.showDescriptor = true;
             storage.allowItemRemoval = true;
             storage.SetDefaultStoredItemModifiers(Storage.StandardInsulatedStorage);
+
+            // Liquid picker side screen (same UI as the Liquid Filter).
+            Filterable filterable = go.AddOrGet<Filterable>();
+            filterable.filterElementState = Filterable.ElementState.Liquid;
 
             go.AddTag(GameTags.CorrosionProof);
         }
