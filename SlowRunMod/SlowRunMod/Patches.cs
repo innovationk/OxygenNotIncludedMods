@@ -17,27 +17,21 @@ namespace SlowRunMod
     {
         public static void Prefix()
         {
-            AddStrings(SAlgaeTerrariumConfig.ID,
-                "S Algae Terrarium",
-                "A self-sustaining terrarium. Nobody knows where the algae went, and nobody is asking.",
-                "Produces " + STRINGS.UI.FormatAsLink("Oxygen", "OXYGEN")
-                + " from nothing. Requires no Algae, no Water and no power.");
-            ModUtil.AddBuildingToPlanScreen("Oxygen", SAlgaeTerrariumConfig.ID, "producers", AlgaeHabitatConfig.ID);
+            AddStrings(SManualGeneratorConfig.ID,
+                "S Manual Generator",
+                "A hamster wheel with ambition. It somehow runs cooler the harder you push it.",
+                "Converts the manpower of the operating Duplicant into electrical "
+                + STRINGS.UI.FormatAsLink("Power", "POWER")
+                + ". Produces more power and less heat than a regular Manual Generator.");
+            ModUtil.AddBuildingToPlanScreen("Power", SManualGeneratorConfig.ID, "generators", ManualGeneratorConfig.ID);
 
-            AddStrings(SMicrobeMusherConfig.ID,
-                "S Microbe Musher",
-                "Breakfast, conjured. Do not ask where the eggs come from.",
-                "Produces " + STRINGS.UI.FormatAsLink("Omelettes", "COOKEDEGG")
-                + " from nothing. Requires no ingredients, no power and no Duplicant.");
-            ModUtil.AddBuildingToPlanScreen("Food", SMicrobeMusherConfig.ID, "cooking", MicrobeMusherConfig.ID);
-
-            AddStrings(SPitcherPumpConfig.ID,
-                "S Pitcher Pump",
-                "It pumps. From where? Best not to look down.",
-                "Provides an endless supply of the selected "
-                + STRINGS.UI.FormatAsLink("Liquid", "ELEMENTS_LIQUID")
-                + ". Needs no liquid below it, no pipes and no power.");
-            ModUtil.AddBuildingToPlanScreen("Plumbing", SPitcherPumpConfig.ID, "pumps", LiquidPumpingStationConfig.ID);
+            AddStrings(SRockCrusherConfig.ID,
+                "S Rock Crusher",
+                "Crushes a pebble, gets a mountain. Geology has given up asking questions.",
+                "Does everything a regular Rock Crusher does. Can also turn "
+                + SRockCrusherConfig.DUPLICATE_INPUT_KG + " kg of any solid element into "
+                + SRockCrusherConfig.DUPLICATE_OUTPUT_KG + " kg of the same element.");
+            ModUtil.AddBuildingToPlanScreen("Refining", SRockCrusherConfig.ID, "materials", RockCrusherConfig.ID);
         }
 
         private static void AddStrings(string id, string name, string desc, string effect)
@@ -55,9 +49,8 @@ namespace SlowRunMod
     {
         public static void Postfix()
         {
-            UnlockWith(AlgaeHabitatConfig.ID, SAlgaeTerrariumConfig.ID);
-            UnlockWith(MicrobeMusherConfig.ID, SMicrobeMusherConfig.ID);
-            UnlockWith(LiquidPumpingStationConfig.ID, SPitcherPumpConfig.ID);
+            UnlockWith(ManualGeneratorConfig.ID, SManualGeneratorConfig.ID);
+            UnlockWith(RockCrusherConfig.ID, SRockCrusherConfig.ID);
         }
 
         private static void UnlockWith(string vanillaId, string modId)
