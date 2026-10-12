@@ -8,7 +8,7 @@ namespace SlowRunMod
 {
     /// <summary>
     /// "S Electric Grill": the vanilla Electric Grill building, but its recipes
-    /// are one per food in the game, and none of them need ingredients.
+    /// are one per food in the game, each made from a pinch of Dirt.
     /// A Duplicant still has to operate it.
     /// </summary>
     public class SElectricGrillConfig : IBuildingConfig
@@ -16,6 +16,8 @@ namespace SlowRunMod
         public const string ID = "SElectricGrill";
 
         // ---- Tuning (edit freely) ----------------------------------------
+        // Dirt consumed per order (0.001 kg is the smallest amount the game fetches).
+        public const float DIRT_INPUT_KG = 0.001f;
         // Food units produced per order.
         public const float UNITS_PER_ORDER = 1f;
         // Cooking time per order, in seconds (vanilla small recipe: 30 s).
@@ -53,12 +55,7 @@ namespace SlowRunMod
             go.GetComponent<KPrefabID>().AddTag(RoomConstraints.ConstraintTags.CookTop);
         }
 
-        /// <summary>
-        /// One recipe per food. The game requires every recipe to have at least
-        /// one ingredient (RecipeManager reads ingredients[0]), so each recipe
-        /// lists the food itself at 0 kg: it is always "available", nothing is
-        /// ever fetched and nothing is consumed.
-        /// </summary>
+        /// <summary>One recipe per food, each taking DIRT_INPUT_KG of Dirt.</summary>
         private static void ConfigureRecipes()
         {
             // Buildings load before food entities; this registers every FoodInfo.
@@ -70,7 +67,7 @@ namespace SlowRunMod
                 Tag tag = food.Id.ToTag();
                 ComplexRecipe.RecipeElement[] input = new ComplexRecipe.RecipeElement[1]
                 {
-                    new ComplexRecipe.RecipeElement(tag, 0f)
+                    new ComplexRecipe.RecipeElement(SimHashes.Dirt.CreateTag(), DIRT_INPUT_KG)
                 };
                 ComplexRecipe.RecipeElement[] output = new ComplexRecipe.RecipeElement[1]
                 {
