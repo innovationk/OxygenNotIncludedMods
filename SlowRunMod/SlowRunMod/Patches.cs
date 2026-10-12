@@ -32,6 +32,13 @@ namespace SlowRunMod
                 + SRockCrusherConfig.DUPLICATE_INPUT_KG + " kg of any solid element into "
                 + SRockCrusherConfig.DUPLICATE_OUTPUT_KG + " kg of the same element.");
             ModUtil.AddBuildingToPlanScreen("Refining", SRockCrusherConfig.ID, "materials", RockCrusherConfig.ID);
+
+            AddStrings(SElectricGrillConfig.ID,
+                "S Electric Grill",
+                "The ingredients are implied. Strongly implied.",
+                "Cooks any " + STRINGS.UI.FormatAsLink("Food", "FOOD")
+                + " in the game without any ingredients. Still needs a Duplicant with the Grilling skill and power.");
+            ModUtil.AddBuildingToPlanScreen("Food", SElectricGrillConfig.ID, "cooking", CookingStationConfig.ID);
         }
 
         private static void AddStrings(string id, string name, string desc, string effect)
@@ -51,6 +58,7 @@ namespace SlowRunMod
         {
             UnlockWith(ManualGeneratorConfig.ID, SManualGeneratorConfig.ID);
             UnlockWith(RockCrusherConfig.ID, SRockCrusherConfig.ID);
+            UnlockWith(CookingStationConfig.ID, SElectricGrillConfig.ID);
         }
 
         private static void UnlockWith(string vanillaId, string modId)
