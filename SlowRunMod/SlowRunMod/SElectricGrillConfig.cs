@@ -34,7 +34,7 @@ namespace SlowRunMod
             BuildingTemplates.CreateElectricalBuildingDef(buildingDef);
             buildingDef.AudioCategory = "Metal";
             buildingDef.AudioSize = "large";
-            buildingDef.EnergyConsumptionWhenActive = 60f;
+            buildingDef.EnergyConsumptionWhenActive = 60f; 
             buildingDef.ExhaustKilowattsWhenActive = 0.5f;
             buildingDef.SelfHeatKilowattsWhenActive = 4f;
             buildingDef.RequiredSkillPerkID = Db.Get().SkillPerks.CanElectricGrill.Id;
