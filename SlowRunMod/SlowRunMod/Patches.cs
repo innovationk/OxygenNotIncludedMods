@@ -37,7 +37,7 @@ namespace SlowRunMod
                 "S Electric Grill",
                 "Every great meal starts with a pinch of dirt. Every single one.",
                 "Cooks any " + STRINGS.UI.FormatAsLink("Food", "FOOD")
-                + " in the game from " + SElectricGrillConfig.DIRT_INPUT_KG + " kg of "
+                + " in the game, or " + STRINGS.UI.FormatAsLink("Water", "WATER") + ", from " + SElectricGrillConfig.DIRT_INPUT_KG + " kg of "
                 + STRINGS.UI.FormatAsLink("Dirt", "DIRT")
                 + ". Still needs a Duplicant with the Grilling skill and power.");
             ModUtil.AddBuildingToPlanScreen("Food", SElectricGrillConfig.ID, "cooking", CookingStationConfig.ID);

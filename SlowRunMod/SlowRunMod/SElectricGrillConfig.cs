@@ -18,6 +18,8 @@ namespace SlowRunMod
         // ---- Tuning (edit freely) ----------------------------------------
         // Dirt consumed per order (0.001 kg is the smallest amount the game fetches).
         public const float DIRT_INPUT_KG = 0.001f;
+        // Water produced per order by the Dirt → Water recipe (dropped as a bottle).
+        public const float WATER_OUTPUT_KG = 1000f;
         // Food units produced per order.
         public const float UNITS_PER_ORDER = 1f;
         // Cooking time per order, in seconds (vanilla small recipe: 30 s).
@@ -82,6 +84,25 @@ namespace SlowRunMod
                     sortOrder = sortOrder++
                 };
             }
+
+            // Dirt → Water. The water keeps the Dirt's temperature instead of
+            // being grilled to 95 °C.
+            ComplexRecipe.RecipeElement[] waterInput = new ComplexRecipe.RecipeElement[1]
+            {
+                new ComplexRecipe.RecipeElement(SimHashes.Dirt.CreateTag(), DIRT_INPUT_KG)
+            };
+            ComplexRecipe.RecipeElement[] waterOutput = new ComplexRecipe.RecipeElement[1]
+            {
+                new ComplexRecipe.RecipeElement(SimHashes.Water.CreateTag(), WATER_OUTPUT_KG, ComplexRecipe.RecipeElement.TemperatureOperation.AverageTemperature)
+            };
+            new ComplexRecipe(ComplexRecipeManager.MakeRecipeID(ID, waterInput, waterOutput), waterInput, waterOutput)
+            {
+                time = COOK_TIME,
+                description = string.Format("Turns {0} kg of Dirt into {1} kg of Water.", DIRT_INPUT_KG, WATER_OUTPUT_KG),
+                nameDisplay = ComplexRecipe.RecipeNameDisplay.Result,
+                fabricators = new List<Tag> { ID },
+                sortOrder = sortOrder++
+            };
         }
 
         public override void DoPostConfigureComplete(GameObject go)
