@@ -41,6 +41,16 @@ namespace SlowRunMod
                 + STRINGS.UI.FormatAsLink("Dirt", "DIRT")
                 + ". Still needs a Duplicant with the Grilling skill and power.");
             ModUtil.AddBuildingToPlanScreen("Food", SElectricGrillConfig.ID, "cooking", CookingStationConfig.ID);
+
+            AddStrings(SAlgaeTerrariumConfig.ID,
+                "S Algae Terrarium",
+                "Same algae, same water, far more enthusiasm.",
+                "Consumes " + STRINGS.UI.FormatAsLink("Algae", "ALGAE")
+                + " and " + STRINGS.UI.FormatAsLink("Water", "WATER")
+                + " to produce " + STRINGS.UI.FormatAsLink("Oxygen", "OXYGEN")
+                + " and " + STRINGS.UI.FormatAsLink("Polluted Water", "DIRTYWATER")
+                + ". Produces more Oxygen than a regular Algae Terrarium.");
+            ModUtil.AddBuildingToPlanScreen("Oxygen", SAlgaeTerrariumConfig.ID, "scrubbers", AlgaeHabitatConfig.ID);
         }
 
         private static void AddStrings(string id, string name, string desc, string effect)
@@ -61,6 +71,7 @@ namespace SlowRunMod
             UnlockWith(ManualGeneratorConfig.ID, SManualGeneratorConfig.ID);
             UnlockWith(RockCrusherConfig.ID, SRockCrusherConfig.ID);
             UnlockWith(CookingStationConfig.ID, SElectricGrillConfig.ID);
+            UnlockWith(AlgaeHabitatConfig.ID, SAlgaeTerrariumConfig.ID);
         }
 
         private static void UnlockWith(string vanillaId, string modId)
