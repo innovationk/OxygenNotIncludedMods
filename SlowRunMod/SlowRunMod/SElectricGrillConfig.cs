@@ -20,6 +20,8 @@ namespace SlowRunMod
         public const float DIRT_INPUT_KG = 0.001f;
         // Water produced per order by the Dirt → Water recipe (dropped as a bottle).
         public const float WATER_OUTPUT_KG = 1000f;
+        // Reed Fiber produced per order by the Dirt → Reed Fiber recipe.
+        public const float REED_FIBER_OUTPUT_UNITS = 1000f;
         // Food units produced per order.
         public const float UNITS_PER_ORDER = 1f;
         // Cooking time per order, in seconds (vanilla small recipe: 30 s).
@@ -85,23 +87,31 @@ namespace SlowRunMod
                 };
             }
 
-            // Dirt → Water. The water keeps the Dirt's temperature instead of
-            // being grilled to 95 °C.
-            ComplexRecipe.RecipeElement[] waterInput = new ComplexRecipe.RecipeElement[1]
+            AddDirtExchangeRecipe(SimHashes.Water.CreateTag(), WATER_OUTPUT_KG, "kg of Water", sortOrder++);
+            AddDirtExchangeRecipe(BasicFabricConfig.ID.ToTag(), REED_FIBER_OUTPUT_UNITS, "Reed Fiber", sortOrder++);
+        }
+
+        /// <summary>
+        /// DIRT_INPUT_KG of Dirt → amount of result. The result keeps the Dirt's
+        /// temperature instead of being grilled to 95 °C.
+        /// </summary>
+        private static void AddDirtExchangeRecipe(Tag result, float amount, string resultLabel, int sortOrder)
+        {
+            ComplexRecipe.RecipeElement[] input = new ComplexRecipe.RecipeElement[1]
             {
                 new ComplexRecipe.RecipeElement(SimHashes.Dirt.CreateTag(), DIRT_INPUT_KG)
             };
-            ComplexRecipe.RecipeElement[] waterOutput = new ComplexRecipe.RecipeElement[1]
+            ComplexRecipe.RecipeElement[] output = new ComplexRecipe.RecipeElement[1]
             {
-                new ComplexRecipe.RecipeElement(SimHashes.Water.CreateTag(), WATER_OUTPUT_KG, ComplexRecipe.RecipeElement.TemperatureOperation.AverageTemperature)
+                new ComplexRecipe.RecipeElement(result, amount, ComplexRecipe.RecipeElement.TemperatureOperation.AverageTemperature)
             };
-            new ComplexRecipe(ComplexRecipeManager.MakeRecipeID(ID, waterInput, waterOutput), waterInput, waterOutput)
+            new ComplexRecipe(ComplexRecipeManager.MakeRecipeID(ID, input, output), input, output)
             {
                 time = COOK_TIME,
-                description = string.Format("Turns {0} kg of Dirt into {1} kg of Water.", DIRT_INPUT_KG, WATER_OUTPUT_KG),
+                description = string.Format("Turns {0} kg of Dirt into {1} {2}.", DIRT_INPUT_KG, amount, resultLabel),
                 nameDisplay = ComplexRecipe.RecipeNameDisplay.Result,
                 fabricators = new List<Tag> { ID },
-                sortOrder = sortOrder++
+                sortOrder = sortOrder
             };
         }
 
