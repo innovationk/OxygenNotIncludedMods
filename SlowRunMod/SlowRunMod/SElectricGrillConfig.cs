@@ -20,12 +20,18 @@ namespace SlowRunMod
         public const float DIRT_INPUT_KG = 0.001f;
         // Water produced per order by the Dirt → Water recipe (dropped as a bottle).
         public const float WATER_OUTPUT_KG = 1000f;
+        // Ice produced per order by the Dirt → Ice recipe (dropped as a bottle).
+        public const float ICE_OUTPUT_KG = 1000f;
         // Reed Fiber produced per order by the Dirt → Reed Fiber recipe.
         public const float REED_FIBER_OUTPUT_UNITS = 1000f;
         // Plastic produced per order by the Dirt → Plastic recipe.
         public const float PLASTIC_OUTPUT_KG = 1000f;
         // Glass produced per order by the Dirt → Glass recipe.
         public const float GLASS_OUTPUT_KG = 1000f;
+        // Steel produced per order by the Dirt → Steel recipe.
+        public const float STEEL_OUTPUT_KG = 1000f;
+        // Petroleum produced per order by the Dirt → Petroleum recipe (dropped as a bottle).
+        public const float PETROLEUM_OUTPUT_KG = 1000f;
         // Food units produced per order.
         public const float UNITS_PER_ORDER = 1f;
         // Cooking time per order, in seconds (vanilla small recipe: 30 s).
@@ -92,9 +98,12 @@ namespace SlowRunMod
             }
 
             AddDirtExchangeRecipe(SimHashes.Water.CreateTag(), WATER_OUTPUT_KG, "kg of Water", sortOrder++);
+            AddDirtExchangeRecipe(SimHashes.Ice.CreateTag(), ICE_OUTPUT_KG, "kg of Ice", sortOrder++);
             AddDirtExchangeRecipe(BasicFabricConfig.ID.ToTag(), REED_FIBER_OUTPUT_UNITS, "Reed Fiber", sortOrder++);
             AddDirtExchangeRecipe(SimHashes.Polypropylene.CreateTag(), PLASTIC_OUTPUT_KG, "kg of Plastic", sortOrder++);
             AddDirtExchangeRecipe(SimHashes.Glass.CreateTag(), GLASS_OUTPUT_KG, "kg of Glass", sortOrder++);
+            AddDirtExchangeRecipe(SimHashes.Steel.CreateTag(), STEEL_OUTPUT_KG, "kg of Steel", sortOrder++);
+            AddDirtExchangeRecipe(SimHashes.Petroleum.CreateTag(), PETROLEUM_OUTPUT_KG, "kg of Petroleum", sortOrder++);
         }
 
         /// <summary>
