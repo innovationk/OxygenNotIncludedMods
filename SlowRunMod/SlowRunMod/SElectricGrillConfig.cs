@@ -32,6 +32,8 @@ namespace SlowRunMod
         public const float STEEL_OUTPUT_KG = 1000f;
         // Petroleum produced per order by the Dirt → Petroleum recipe (dropped as a bottle).
         public const float PETROLEUM_OUTPUT_KG = 1000f;
+        // Data Banks produced per order by the Dirt → Data Bank recipe.
+        public const float DATA_BANK_OUTPUT_UNITS = 1000f;
         // Food units produced per order.
         public const float UNITS_PER_ORDER = 1f;
         // Cooking time per order, in seconds (vanilla small recipe: 30 s).
@@ -104,6 +106,7 @@ namespace SlowRunMod
             AddDirtExchangeRecipe(SimHashes.Glass.CreateTag(), GLASS_OUTPUT_KG, "kg of Glass", sortOrder++);
             AddDirtExchangeRecipe(SimHashes.Steel.CreateTag(), STEEL_OUTPUT_KG, "kg of Steel", sortOrder++);
             AddDirtExchangeRecipe(SimHashes.Petroleum.CreateTag(), PETROLEUM_OUTPUT_KG, "kg of Petroleum", sortOrder++);
+            AddDirtExchangeRecipe(DatabankHelper.ID.ToTag(), DATA_BANK_OUTPUT_UNITS, "Data Banks", sortOrder++);
         }
 
         /// <summary>
